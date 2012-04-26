@@ -58,3 +58,19 @@ swiftmailer:
 jms_security_extra:
     secure_controllers:  true
     secure_all_services: false
+
+services:
+  # Identificador del Listener
+  controler.listener:
+    # Listener Namespace and nombre de la clase
+    class: Acme\DemoBundle\EventListener\ControllerListener
+    # Inyección de dependencia: Contenedor de servicios
+    calls:
+        - [ setContainer, [ @service_container ] ]
+    # Definición del servicio como Listener: los eventos a observar son kernel.request (cada vez que se realiza una
+    # petición Http), KernelResponse (cada vez que se devuelve una respuesta a la petición Http), kernel.exception
+    # (cada vez que ocurre una excepción)
+    tags:
+        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+        - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
