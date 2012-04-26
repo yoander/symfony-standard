@@ -31,9 +31,9 @@ class ControllerListener implements ContainerAwareInterface
     public function onKernelRequest(GetResponseEvent $event)
     {
         // No caching for dev enviroment
-       /* if ($this->container->getParameter('kernel.environment') === 'dev') {
+        if ($this->container->getParameter('kernel.environment') === 'dev') {
             return;
-        }*/
+        }
 
         $request = $event->getRequest();
 
@@ -69,9 +69,9 @@ class ControllerListener implements ContainerAwareInterface
     public function onKernelResponse(FilterResponseEvent $event)
     {
         // No caching for dev enviroment
-        /*if ($this->container->getParameter('kernel.environment') === 'dev') {
+        if ($this->container->getParameter('kernel.environment') === 'dev') {
             return;
-        }*/
+        }
 
         $request = $event->getRequest();
 
