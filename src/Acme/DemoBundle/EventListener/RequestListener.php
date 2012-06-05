@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-class ControllerListener implements ContainerAwareInterface
+class RequestListener implements ContainerAwareInterface
 {
     /**
      * @var ContainerInterface
