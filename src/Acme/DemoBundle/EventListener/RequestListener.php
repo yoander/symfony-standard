@@ -47,8 +47,8 @@ class RequestListener implements ContainerAwareInterface
 
         $qs = $request->getQueryString();
 
-        // For caching request with query string if you do not want to cache it
-        // comment out
+        // For caching request with query string if you do not aware of query
+        // string comment out
         if (!empty($qs)) {
             $path .= '.' . sha1($qs);
         }
@@ -83,8 +83,8 @@ class RequestListener implements ContainerAwareInterface
         // Build Apc cache key
         $path = 'controller.' . $request->getPathInfo();
 
-        // For caching request with query string if you do not want to cache it
-        // comment out
+        // For caching request with query string if you do not aware of query
+        // string comment out
         $qs = $request->getQueryString();
 
         if (!empty($qs)) {
